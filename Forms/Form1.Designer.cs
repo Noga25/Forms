@@ -105,7 +105,10 @@ namespace Forms
             this.comboBox2.Items.AddRange(new object[] {
             "Add",
             "Subtract",
-            "Multiply"});
+            "Multiply",
+            "Divide",
+            "Power",
+            "Average"});
             this.comboBox2.Location = new System.Drawing.Point(341, 170);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 24);
@@ -137,9 +140,8 @@ namespace Forms
             this.resultLabel.AutoSize = true;
             this.resultLabel.Location = new System.Drawing.Point(371, 126);
             this.resultLabel.Name = "resultLabel";
-            this.resultLabel.Size = new System.Drawing.Size(80, 17);
+            this.resultLabel.Size = new System.Drawing.Size(0, 17);
             this.resultLabel.TabIndex = 7;
-            this.resultLabel.Text = "empty label";
             // 
             // Form1
             // 

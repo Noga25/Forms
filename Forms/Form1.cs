@@ -28,7 +28,7 @@ namespace Forms
             string selectedOperation = comboBox2.SelectedItem.ToString();
 
             // Using delegate to perform calculation based on selected operation
-            Func<int, int, int> calculateOperation = null;
+            Func<float, float, float> calculateOperation = null;
 
             switch (selectedOperation)
             {
@@ -41,35 +41,56 @@ namespace Forms
                 case "Multiply":
                     calculateOperation = Multiply;
                     break;
-                default:
-                    MessageBox.Show("Invalid operation.");
-                    return;
+                case "Divide":
+                    calculateOperation = Divide;
+                    break;
+                case "Power":
+                    calculateOperation = Power;
+                    break;
+                case "Average":
+                    calculateOperation = Average;
+                    break;
             }
 
-            int operand1, operand2;
-            if (!int.TryParse(comboBox1.Text, out operand1) || !int.TryParse(comboBox3.Text, out operand2))
+            float operand1, operand2;
+            if (!float.TryParse(comboBox1.Text, out operand1) || !float.TryParse(comboBox3.Text, out operand2))
             {
                 MessageBox.Show("Invalid operands. Please enter valid integer values.");
                 return;
             }
 
-            int result = calculateOperation(operand1, operand2);
+            float result = calculateOperation(operand1, operand2);
             resultLabel.Text = $"Result: {result}";
         }
 
-        private int Add(int a, int b)
+        private float Add(float a, float b)
         {
             return a + b;
         }
 
-        private int Subtract(int a, int b)
+        private float Subtract(float a, float b)
         {
             return a - b;
         }
 
-        private int Multiply(int a, int b)
+        private float Multiply(float a, float b)
         {
             return a * b;
+        }
+
+        private float Divide(float a, float b)
+        {
+            return a / b;
+        }
+
+        private float Power(float a, float b)
+        {
+            return (int)Math.Pow(a, b);
+        }
+
+        private float Average(float a, float b)
+        {
+            return (a + b) / 2;
         }
 
         private void button1_Click(object sender, EventArgs e)
